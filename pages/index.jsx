@@ -2,9 +2,13 @@ import Head from "next/head";
 import Page from "../components/Page";
 import options from "../utils/options";
 import { COLOR_RED } from "../utils/constants";
+import { useState } from "react";
 
 
 export default function App({ssr}) {
+  const [id, setId] = useState(1)
+  const [count, setCount] = useState(1)
+
   let color = COLOR_RED;
   return (
     <>
@@ -12,7 +16,7 @@ export default function App({ssr}) {
         <title>Грузовичкоф</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Page color={color} options={options} count={1} id={1} data={ssr} />
+      <Page color={color} options={options} count={count} id={id} data={ssr} />
     </>
   );
 }
